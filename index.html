@@ -28,9 +28,8 @@
 
     <div id="infoContainer">
         <br>
-        <div class="tooltip"><span onclick="ExpandInfo()" id="infoTip"><img id="info" src="img/info.png"></span>
+        <div class="tooltip"><span onclick="expandInfo()" id="infoTip"><img id="info" src="img/info.png"></span>
             <div class="tooltiptext" id="tooltiptext">
-                <h4>Notes</h4>
                 <ul>
                     <li>This website generates a paper wallet, ready for printing and storage.</li>
                     <li>Use the option buttons on the top left to control the output of the paper wallet generator</li>
@@ -49,14 +48,14 @@
         </div>
     </div>
     <div id="versions">
-        <h4 id="optionsBtn" onclick="ExpandOptions()">Options</h4>
+        <h4 id="optionsBtn" onclick="expandOptions()">Options</h4>
         <div id="options">
             <label>Styles</label><br>
-            <input id="default" class="button sml button-active" type="button" onclick="SetMode('default')" value="Default"><br>
-            <input id="address" class="button sml" type="button" onclick="SetMode('address')" value="Address Only"><br>
-            <input id="no-qr" class="button sml" type="button" onclick="SetMode('no-qr')" value="No QR codes"><br>
-            <input id="discreet" class="button sml" type="button" onclick="SetMode('discreet')" value="Discreet"><br>
-            <h4 id="advancedBtn" onclick="ExpandAdvanced()">Advanced!</h4>
+            <input id="default" class="button sml button-active" type="button" onclick="setMode('default')" value="Default"><br>
+            <input id="address" class="button sml" type="button" onclick="setMode('address')" value="Address Only"><br>
+            <input id="noQR" class="button sml" type="button" onclick="setMode('noQR')" value="No QR codes"><br>
+            <input id="discreet" class="button sml" type="button" onclick="setMode('discreet')" value="Discreet"><br>
+            <h4 id="advancedBtn" onclick="expandAdvanced()">Advanced!</h4>
             <div id="advanced">
                 <label>Enter Index</label><br>
                 <input id="index-num" type="text" value="0" onkeyup="this.value=this.value.replace(/[^\d]/,'')"><br>
@@ -68,13 +67,13 @@
     </div>
 
     <a id="seed-help" href="https://matthewwinstonjohnson.gitbooks.io/iota-guide-and-faq/getting-started/dl-wallet/what-is-my-seed.html">How to generate a secure seed</a>
-    <a id="download" href="out/offline-build.zip" download>Download an offline version of this site</a>
-    <a id="attr" href="https://github.com/arancauchi/IOTA-Paper-Wallet/blob/master/LICENSE">This site is covered under an MIT license</a>
-    <a id="ver" href="https://github.com/arancauchi/IOTA-Paper-Wallet">v1.3.8</a>
+    <a id="download" href="out/offline-build.zip" download>Download an offline version of this tool</a>
+    <a id="attr" href="https://github.com/arancauchi/IOTA-Paper-Wallet/blob/master/LICENSE">This tool is covered under an MIT license</a>
+    <a id="ver" href="https://github.com/arancauchi/IOTA-Paper-Wallet">v1.4</a>
 
-    <script src="js/qrious.min.js"></script>
-    <script src="js/iota.js"></script>
-    <script src="js/main.js"></script>
+    <script src="dist/qrious.min.js"></script>
+    <script src="dist/iota.js"></script>
+    <script src="dist/main.bundle.js"></script>
 </body>
 
 </html>

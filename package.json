@@ -5,10 +5,18 @@
   "main": "index.js",
   "devDependencies": {
     "archiver": "latest",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.2.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
     "require": "latest"
   },
   "scripts": {
-    "build": "node ./build/build.js"
+    "build": "babel --presets es2015 js/main.js -o dist/main.bundle.js; node ./build/build.js",
+    "babel": "babel --presets es2015 js/main.js -o dist/main.bundle.js"
   },
   "repository": {
     "type": "git",

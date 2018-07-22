@@ -1,21 +1,23 @@
-let visibility = {info: false, options: false, advanced: false};
-let modes = {default: 'default', noQR: 'noQR', address: 'address', discreet: 'discreet'};
-let mode = null;
+'use strict';
 
-document.addEventListener('DOMContentLoaded', () => {
-    let iota = new IOTA({
+var visibility = { info: false, options: false, advanced: false };
+var modes = { default: 'default', noQR: 'noQR', address: 'address', discreet: 'discreet' };
+var mode = null;
+
+document.addEventListener('DOMContentLoaded', function () {
+    var iota = new IOTA({
         'host': 'http://localhost',
-        'port': 14265,
+        'port': 14265
     });
 
-    const imageCanvas = document.getElementById('imageCanvas');
-    const ctx = imageCanvas.getContext('2d');
-    let msg = '';
+    var imageCanvas = document.getElementById('imageCanvas');
+    var ctx = imageCanvas.getContext('2d');
+    var msg = '';
 
-    let seedCanvas;
-    let addressCanvas;
-    let seed;
-    let address;
+    var seedCanvas = void 0;
+    var addressCanvas = void 0;
+    var seed = void 0;
+    var address = void 0;
 
     ctx.font = 'bold 32px Roboto';
     ctx.textAlign = 'center';
@@ -23,13 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.fillText('81 CHARACTERS IN LENGTH, CONTAINING ONLY: UPPERCASE [A-Z] AND 9', 800, 350);
 
     function generate() {
-        let options = {};
+        var options = {};
 
         seed = document.getElementById('seed').value;
         seedCanvas = document.getElementById('seedCanvas');
         addressCanvas = document.getElementById('addressCanvas');
 
-        let sec = parseInt(document.getElementById('security-level').value);
+        var sec = parseInt(document.getElementById('security-level').value);
         if (sec < 1 || sec > 3) {
             sec = 2;
         }
@@ -41,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         options.total = 1;
 
         if (displayValid(seed)) {
-            iota.api.getNewAddress(seed, options, (e, add) => {
+            iota.api.getNewAddress(seed, options, function (e, add) {
                 address = add[0];
                 generatePaper();
             });
@@ -54,25 +56,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function generatePaper() {
-        const sQR = new QRious({
+        var sQR = new QRious({
             element: seedCanvas,
             value: seed,
             size: 300,
-            backgroundAlpha: 0,
+            backgroundAlpha: 0
         });
 
-        const aQR = new QRious({
+        var aQR = new QRious({
             element: addressCanvas,
             value: address,
             size: 300,
-            backgroundAlpha: 0,
+            backgroundAlpha: 0
         });
 
         ctx.clearRect(0, 0, imageCanvas.width, imageCanvas.height);
 
         if (mode !== modes.discreet) {
-            let bg = new Image;
-            bg.onload = () => {
+            var bg = new Image();
+            bg.onload = function () {
                 ctx.save();
                 ctx.globalAlpha = 0.8;
                 ctx.drawImage(bg, 0, 0, imageCanvas.width, imageCanvas.height);
@@ -94,8 +96,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     ctx.font = 'bold 28px Roboto';
                     ctx.textAlign = 'center';
 
-                    let xPos = 170;
-                    let yPos = 460;
+                    var xPos = 170;
+                    var yPos = 460;
 
                     if (mode == modes.noQR) {
                         xPos = 110;
@@ -126,8 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 ctx.fillText(address.substring(30, 60), 1580, 490);
                 ctx.fillText(address.substring(60), 1580, 520);
 
-                let img = new Image;
-                img.onload = () => {
+                var img = new Image();
+                img.onload = function () {
                     ctx.drawImage(img, 400, 114, 800, 300);
                 };
                 img.src = 'img/logo.png';
@@ -144,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function displayValid(seed) {
-        let val = true;
+        var val = true;
 
         document.getElementById('validMessage').innerHTML = '';
 
@@ -157,11 +159,11 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('validMessage').innerHTML = msg;
             val = false;
         } else if (seed.length < 81) {
-            msg = `Seed is less than 81 characters (${seed.length}). For maximum security, use 81 characters.`;
+            msg = 'Seed is less than 81 characters (' + seed.length + '). For maximum security, use 81 characters.';
             document.getElementById('validMessage').innerHTML = msg;
             val = false;
         } else if (seed.length > 81) {
-            msg = `THIS IS NOT A VALID SEED! THIS SEED IS LONGER THAN 81 CHARACTERS (${seed.length})`;
+            msg = 'THIS IS NOT A VALID SEED! THIS SEED IS LONGER THAN 81 CHARACTERS (' + seed.length + ')';
             document.getElementById('validMessage').innerHTML = msg;
             val = false;
         }
@@ -176,13 +178,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('generate').addEventListener('click', generate);
     document.getElementById('print').addEventListener('click', printWallet);
 
-    document.getElementById('seed').addEventListener('keyup', () => {
+    document.getElementById('seed').addEventListener('keyup', function () {
         displayValid(document.getElementById('seed').value);
     });
 });
 
 function expandInfo() {
-    let style = 'hidden';
+    var style = 'hidden';
     if (!visibility.info) {
         style = 'visible';
     }
@@ -192,7 +194,7 @@ function expandInfo() {
 }
 
 function expandOptions() {
-    let style = 'hidden';
+    var style = 'hidden';
     if (!visibility.options) {
         style = 'visible';
     } else {
@@ -205,7 +207,7 @@ function expandOptions() {
 }
 
 function expandAdvanced() {
-    let style = 'hidden';
+    var style = 'hidden';
     if (!visibility.advanced && visibility.options) {
         style = 'visible';
     }
@@ -217,7 +219,7 @@ function expandAdvanced() {
 function setMode(m) {
     mode = m;
 
-    Object.keys(modes).forEach((key) => {
+    Object.keys(modes).forEach(function (key) {
         document.getElementById(modes[key]).classList.remove('button-active');
     });
 

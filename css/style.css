@@ -9,7 +9,6 @@ html {
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: rgb(211, 211, 211);
     min-height: 100%;
     overflow: hidden;
 }
@@ -99,6 +98,7 @@ input {
 #buttons {
     text-align: center;
     margin: auto;
+    margin-top: 10px;
     width: 100%;
     margin-left: 8px;
 }
