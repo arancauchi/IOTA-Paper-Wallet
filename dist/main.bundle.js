@@ -2,7 +2,7 @@
 
 var visibility = { info: false, options: false, advanced: false };
 var modes = { default: 'default', noQR: 'noQR', address: 'address', discreet: 'discreet' };
-var mode = null;
+var mode = 'default';
 
 document.addEventListener('DOMContentLoaded', function () {
     var iota = new IOTA({

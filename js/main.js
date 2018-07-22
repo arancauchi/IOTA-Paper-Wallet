@@ -1,6 +1,6 @@
 let visibility = {info: false, options: false, advanced: false};
 let modes = {default: 'default', noQR: 'noQR', address: 'address', discreet: 'discreet'};
-let mode = null;
+let mode = 'default';
 
 document.addEventListener('DOMContentLoaded', () => {
     let iota = new IOTA({
