@@ -20,7 +20,7 @@ A ZIP file labled, "offline-build.zip" will be created in the **~/IOTA-Paper-Wal
 Unzip this file and run the resulting HTML file in your browser.
 <br>
 # Releases
-<a href="https://github.com/arancauchi/IOTA-Paper-Wallet/releases/tag/1.5">v1.5 Updated to iota.lib.js (LTS) 0.5.0, small lint fixes</a><br>
+<a href="https://github.com/arancauchi/IOTA-Paper-Wallet/releases/tag/1.5.1">v1.5.1 Updated to iota.lib.js (LTS) 0.5.0, small lint fixes</a><br>
 v1.4 Updated tool to use es6 with Babel<br>
 v1.3.8 Keystroke checking of seed validity + hard input limit + updated iota.lib.js to 0.4.6<br>
 v1.3.7 Minor CSS tweaks<br>

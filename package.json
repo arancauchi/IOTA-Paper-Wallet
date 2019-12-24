@@ -1,6 +1,6 @@
 {
   "name": "iota-paper-wallet",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "A paper wallet generation tool for the IOTA cryptocurrency",
   "main": "index.js",
   "devDependencies": {
@@ -20,7 +20,7 @@
     "require": "latest"
   },
   "scripts": {
-    "build": "babel js/main.js -o dist/main.bundle.js",
+    "build": "babel js/main.js -o dist/main.bundle.js; node ./build/build.js",
     "babel": "babel js/main.js -o dist/main.bundle.js"
   },
   "repository": {
