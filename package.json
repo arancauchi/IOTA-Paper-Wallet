@@ -1,22 +1,27 @@
 {
   "name": "iota-paper-wallet",
-  "version": "1.3.1",
+  "version": "1.5.0",
   "description": "A paper wallet generation tool for the IOTA cryptocurrency",
   "main": "index.js",
   "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
     "archiver": "latest",
-    "babel-preset-env": "^1.7.0",
-    "eslint": "^5.2.0",
-    "eslint-config-google": "^0.9.1",
-    "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-node": "^7.0.1",
-    "eslint-plugin-promise": "^3.8.0",
-    "eslint-plugin-standard": "^3.1.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-node": "^4.0.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^1.19.1",
     "require": "latest"
   },
   "scripts": {
-    "build": "babel --presets es2015 js/main.js -o dist/main.bundle.js; node ./build/build.js",
-    "babel": "babel --presets es2015 js/main.js -o dist/main.bundle.js"
+    "build": "babel js/main.js -o dist/main.bundle.js",
+    "babel": "babel js/main.js -o dist/main.bundle.js"
   },
   "repository": {
     "type": "git",
@@ -34,6 +39,7 @@
   },
   "homepage": "https://github.com/arancauchi/IOTA-Paper-Wallet#readme",
   "dependencies": {
+    "babel-eslint": "^10.0.3",
     "hasha": "^3.0.0",
     "write": "^1.0.3"
   }
