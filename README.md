@@ -1,3 +1,7 @@
+# WARNING
+This repo is no longer actively maintained.
+Please use official IOTA Foundation tools such as the Trinity Wallet for generating your paper wallet.
+
 # IOTA-Paper-Wallet
 This utility is for the use of generating paper wallets for IOTA.<br>
 All resources are local, and the only two dependencies for this utility are <a href="https://github.com/neocotic/qrious">qrious</a>, and <a href = "https://github.com/iotaledger/iota.lib.js">iota js lib</a>
